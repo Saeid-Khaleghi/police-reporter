@@ -19,7 +19,9 @@
     "require": {},
     "extra": {
         "laravel": {
-            "provider": "SaeidKhaleghi\\PoliceReporter\\PoliceReporterServiceProvider"
+            "providers": [
+				"SaeidKhaleghi\\PoliceReporter\\PoliceReporterServiceProvider"
+			]
         }
     }
 }
