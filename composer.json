@@ -1,0 +1,25 @@
+{
+    "name": "saeid-khaleghi/police-reporter",
+    "description": "A package for securely reporting business transactions to the New Zealand Police for compliance and transparency purposes.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["business", "transaction", "reporting", "compliance", "New Zealand Police"],
+    "autoload": {
+        "psr-4": {
+            "SaeidKhaleghi\\PoliceReporter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Saeid Khaleghi",
+            "email": "saeid.khaleghi@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "provider": "SaeidKhaleghi\\PoliceReporter\\PoliceReporterServiceProvider"
+        }
+    }
+}
