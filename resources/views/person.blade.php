@@ -1,5 +1,5 @@
 <t_person>
-    <gender>M</gender>
+    <gender>{{$person->gender}}</gender>
     <first_name>{{$person->first_name}}</first_name>
     <last_name>{{$person->last_name}}</last_name>
     @if (! empty($person->birthdate))
