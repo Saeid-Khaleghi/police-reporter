@@ -11,8 +11,6 @@ class Person extends Tag
     public string $first_name;
     public string $last_name;
     public ?string $birthdate;
-    public ?string $id_number;
-
     public ?PersonIdentification $identification = null;
 
     public static function create(string $gender, string $first_name, string $last_name, ?string $birthdate, ?string $id_number = null): static
@@ -20,13 +18,13 @@ class Person extends Tag
         return new static($gender, $first_name, $last_name, $birthdate, $id_number);
     }
 
-    public function __construct(string $gender, string $first_name, string $last_name, ?DateTimeInterface $birthdate, ?string $id_number = null)
+    public function __construct(string $gender, string $first_name, string $last_name, ?DateTimeInterface $birthdate, ?PersonIdentification $identification)
     {
         $this->gender = $gender;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->birthdate = Carbon::instance($birthdate)->toDateTimeLocalString();
-        $this->id_number = $id_number;
+        $this->identification = $identification;
     }
 
     public function setIdentification(string $type, string $number, string $issue_country, ?DateTimeInterface $expiry_date = null): static

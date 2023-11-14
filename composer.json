@@ -16,7 +16,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "nesbot/carbon": "3.x-dev"
+    },
     "extra": {
         "laravel": {
             "providers": [

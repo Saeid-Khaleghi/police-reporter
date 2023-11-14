@@ -5,10 +5,16 @@
     @if (! empty($person->birthdate))
         <birthdate>{{$person->birthdate}}</birthdate>
     @endif
-    @if (! empty($person->id_number))
-        <id_number>{{$person->id_number}}</id_number>
-    @endif
     @if(! empty($person->identification))
+        @switch($person->identification->type)
+            @case('A')
+                <id_number>{{$person->identification->number}}</id_number>
+                @break
+            @case('F')
+                <passport_number>{{$person->identification->number}}</passport_number>
+                <passport_country>{{$person->identification->issue_country}}</passport_country>
+                @break
+        @endswitch
         <identification>
             <type>{{$person->identification->type}}</type>
             <number>{{$person->identification->number}}</number>

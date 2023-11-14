@@ -20,7 +20,7 @@ $transactions = Transaction::all();
 $reporter = XMLGenerator::create($transactions)->writeToFile($path);
 ```
 
-You can add your models directly by implementing the `\SaeidKhaleghi\Sitemap\Contracts\Sitemapable` interface.
+You can add your models directly by implementing the `\SaeidKhaleghi\PoliceReporter\Contracts\Reportable` interface.
 
 ```php
 use SaeidKhaleghi\PoliceReporter\Contracts\Reportable;
@@ -65,10 +65,8 @@ class PoliceReportTransactionMaker
 
     public function signatory()
     {
-        $user = new Person('Gender', 'First name', 'Last name', 'Birthdate', 'Id number');
-        if ('Id number exists') {
-            $user->setIdentification('Type', 'Number', 'Issue country', 'Expiry date');
-        }
+        $identification = new PersonIdentification('Type', 'id_number', 'country', 'Expiry date');
+        $user = new Person('Gender', 'First name', 'Last name', 'Birthdate', $identification);
 
         return new Signatory($user);
     }
