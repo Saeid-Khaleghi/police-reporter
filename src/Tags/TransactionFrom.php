@@ -15,9 +15,9 @@ class TransactionFrom extends Tag
         return new static($from_fund_code, $from_country);
     }
 
-    public function __construct(string $from_found_code, string $from_country)
+    public function __construct(string $from_fund_code, string $from_country)
     {
-        $this->from_fund_code = $from_found_code;
+        $this->from_fund_code = $from_fund_code;
         $this->from_country = $from_country;
     }
 

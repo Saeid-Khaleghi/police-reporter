@@ -66,7 +66,7 @@ class PoliceReportTransactionMaker
     public function signatory()
     {
         $identification = new PersonIdentification('Type', 'id_number', 'country', 'Expiry date');
-        $user = new Person('Gender', 'First name', 'Last name', 'Birthdate', $identification);
+        $user = new Person('Gender', 'First name', 'Last name', 'Birthdate', 'Passport number', 'Passport Country (Two-Letter Country Code)', $identification);
 
         return new Signatory($user);
     }

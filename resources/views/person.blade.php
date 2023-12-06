@@ -11,17 +11,17 @@
                 <id_number>{{$person->identification->number}}</id_number>
                 @break
             @case('F')
-                <passport_number>{{$person->identification->number}}</passport_number>
-                <passport_country>{{$person->identification->issue_country}}</passport_country>
+                <passport_number>{{$person->passport_number}}</passport_number>
+                <passport_country>{{$person->passport_country}}</passport_country>
                 @break
         @endswitch
         <identification>
             <type>{{$person->identification->type}}</type>
             <number>{{$person->identification->number}}</number>
-            <issue_country>{{$person->identification->issue_country}}</issue_country>
             @if (! empty($person->identification->expiry_date))
                 <expiry_date>{{$person->identification->expiry_date}}</expiry_date>
             @endif
+            <issue_country>{{$person->identification->issue_country}}</issue_country>
         </identification>
     @endif
 </t_person>
