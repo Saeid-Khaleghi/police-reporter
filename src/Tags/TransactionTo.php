@@ -10,6 +10,9 @@ class TransactionTo extends Tag
     /** @var ToAccount[] */
     public array $to_accounts = [];
 
+    /** @var ToPerson[] */
+    public array $to_people = [];
+
     public static function create(string $to_fund_code, string $to_country): static
     {
         return new static($to_fund_code, $to_country);
@@ -24,6 +27,13 @@ class TransactionTo extends Tag
     public function addToAccount(ToAccount $toAccount): static
     {
         $this->to_accounts[] = $toAccount;
+
+        return $this;
+    }
+
+    public function addToPerson(ToPerson $toPerson): static
+    {
+        $this->to_people[] = $toPerson;
 
         return $this;
     }
