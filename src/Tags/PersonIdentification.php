@@ -21,8 +21,9 @@ class PersonIdentification extends Tag
     {
         $type = match ($type) {
             'driver_licence' => 'A',
-            'passport' => 'F',
-            default => ''
+            'passport'       => 'F',
+            'id_card'        => 'C',
+            default          => ''
         };
         $this->type = $type;
         $this->number = $number;

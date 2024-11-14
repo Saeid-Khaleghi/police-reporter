@@ -63,7 +63,7 @@ class PoliceReportTransactionMaker
         return new FromAccount(env('APP_FORMAL_NAME'), env('APP_INSTITUTION_CODE'), 'Branch', 'Account', 'Account_name');
     }
 
-    public function signatory()
+    public function accountRelatedPerson()
     {
         $identification = new PersonIdentification('Type', 'id_number', 'country', 'Expiry date');
         $user = new Person('Gender', 'First name', 'Last name', 'Birthdate', 'Passport number', 'Passport Country (Two-Letter Country Code)', $identification);
@@ -84,7 +84,7 @@ class PoliceReportTransactionMaker
     public function transaction()
     {
         return ReportTransaction::create($this->transfer->reference, $this->transfer->updated_at, $this->transfer->origin_amount)
-            ->addFromMyClient($this->transactionFrom()->addFromAccount($this->fromAccount()->addSignatory($this->signatory())))
+            ->addFromMyClient($this->transactionFrom()->addFromAccount($this->fromAccount()->addAccountRelatedPerson($this->accountRelatedPerson())))
             ->addTransactionTo($this->transactionTo()->addToAccount($this->toAccount()));
     }
 }
