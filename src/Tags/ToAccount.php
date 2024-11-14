@@ -8,14 +8,14 @@ class ToAccount extends Tag
     public string $account;
     public string $account_name;
     public string $institution_name;
-    public bool $non_bank_institution;
+    public string $non_bank_institution;
 
-    public static function create(string $institution_name, string $account, string $account_name, ?string $swift = null, bool $non_bank_institution = true): static
+    public static function create(string $institution_name, string $account, string $account_name, ?string $swift = null, string $non_bank_institution = 'true'): static
     {
         return new static($institution_name, $account, $account_name, $swift, $non_bank_institution);
     }
 
-    public function __construct(string $institution_name, string $account, string $account_name, ?string $swift = null, bool $non_bank_institution = true)
+    public function __construct(string $institution_name, string $account, string $account_name, ?string $swift = null, string $non_bank_institution = 'true')
     {
         $this->institution_name = $institution_name;
         $this->account = $account;
