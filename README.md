@@ -66,14 +66,14 @@ class PoliceReportTransactionMaker
     public function accountRelatedPerson()
     {
         $identification = new PersonIdentification('Type', 'id_number', 'country', 'Expiry date');
-        $user = new Person('Gender', 'First name', 'Last name', 'Birthdate', 'Passport number', 'Passport Country (Two-Letter Country Code)', $identification);
+        $user = new Person('Gender', 'First name', 'Last name', 'Birthdate', 'Id Type',  'Id number', 'Issue Country (Two-Letter Country Code)', $identification);
 
-        return new Signatory($user);
+        return new AccountRelatedPerson($user);
     }
 
     public function transactionTo()
     {
-        return new TransactionTo('To fund code', 'To country');
+        return new TransactionTo('To fund code', 'Destination Currency', 'Destination amount', 'To country');
     }
 
     public function toAccount()
@@ -108,20 +108,24 @@ The generated XML will look similar to this:
                     <branch>web</branch>
                     <account>ABC123</account>
                     <account_name>Saeid Khaleghi</account_name>
-                    <signatory>
-                        <t_person>
-                            <gender>M</gender>
-                            <first_name>Saeid</first_name>
-                            <last_name>Khaleghi</last_name>
-                            <birthdate>1980-06-24T00:00:00</birthdate>
-                            <id_number>ZYXWV123</id_number>
-                            <identification>
-                                <type>A</type>
-                                <number>ZYXWV123</number>
-                                <issue_country>NZ</issue_country>
-                            </identification>
-                        </t_person>
-                    </signatory>
+                    <related_persons>
+                        <account_related_person>
+                            <t_person>
+                                <gender>M</gender>
+                                <first_name>Saeid</first_name>
+                                <last_name>Khaleghi</last_name>
+                                <birthdate>1980-06-24T00:00:00</birthdate>
+                                <id_number>ZYXWV123</id_number>
+                                <identifications>
+                                    <identification>
+                                        <type>A</type>
+                                        <number>ZYXWV123</number>
+                                        <issue_country>NZ</issue_country>
+                                    </identification>
+                                </identifications>
+                            </t_person>
+                        </account_related_person>
+                    </related_persons>
                 </from_account>
                 <from_country>NZ</from_country>
             </t_from_my_client>

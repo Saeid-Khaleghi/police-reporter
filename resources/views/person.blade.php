@@ -5,23 +5,18 @@
     @if (! empty($person->birthdate))
         <birthdate>{{$person->birthdate}}</birthdate>
     @endif
-    @if(! empty($person->identification))
-        @switch($person->identification->type)
-            @case('A')
-                <id_number>{{$person->identification->number}}</id_number>
-                @break
-            @case('F')
-                <passport_number>{{$person->passport_number}}</passport_number>
-                <passport_country>{{$person->passport_country}}</passport_country>
-                @break
-        @endswitch
-        <identification>
-            <type>{{$person->identification->type}}</type>
-            <number>{{$person->identification->number}}</number>
-            @if (! empty($person->identification->expiry_date))
-                <expiry_date>{{$person->identification->expiry_date}}</expiry_date>
-            @endif
-            <issue_country>{{$person->identification->issue_country}}</issue_country>
-        </identification>
+    @switch($person->id_type)
+        @case('A')
+            <id_number>{{$person->id_number}}</id_number>
+            @break
+        @case('F')
+            <passport_number>{{$person->id_number}}</passport_number>
+            <passport_country>{{$person->issue_country}}</passport_country>
+            @break
+    @endswitch
+    @if(! empty($person->identifications))
+        <identifications>
+            @each('reporter::person_identification', $person->identifications, 'identification')
+        </identifications>
     @endif
 </t_person>

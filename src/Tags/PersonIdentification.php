@@ -19,12 +19,6 @@ class PersonIdentification extends Tag
 
     public function __construct(string $type, string $number, string $issue_country, ?DateTimeInterface $expiry_date = null)
     {
-        $type = match ($type) {
-            'driver_licence' => 'A',
-            'passport'       => 'F',
-            'id_card'        => 'C',
-            default          => ''
-        };
         $this->type = $type;
         $this->number = $number;
         $this->issue_country = $issue_country;
